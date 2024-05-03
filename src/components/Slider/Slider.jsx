@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { upcoming } from "../../temp/upcoming";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import Ratings from "../Ratings/Ratings";
 import "./Slider.css";
 
 function Slider() {
@@ -37,6 +38,15 @@ function Slider() {
       <div className="slider-overlay"></div>
       <MdKeyboardArrowLeft className="arrow-left" onClick={slideBackward} />
       <MdKeyboardArrowRight className="arrow-right" onClick={slideForward} />
+      <div className="slider-info">
+        <h2>{upcoming[slideIndex].title}</h2>
+        <p>
+          {upcoming[slideIndex].overview.slice(0, 130)}
+          {upcoming[slideIndex].overview.length > 130 ? "..." : null}
+        </p>
+        <p>Release Date: {upcoming[slideIndex].release_date}</p>
+        <Ratings numberRating={upcoming[slideIndex].vote_average} />
+      </div>
     </div>
   );
 }

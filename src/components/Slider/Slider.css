@@ -6,7 +6,7 @@
   cursor: pointer;
   position: absolute;
   top: 45%;
-  z-index: 2;
+  z-index: 3;
 }
 
 .arrow-left:hover,
@@ -32,4 +32,28 @@
   );
   position: absolute;
   z-index: 1;
+}
+
+.slider-info {
+  position: absolute;
+  z-index: 2;
+  height: 35vh;
+  width: 50%;
+  bottom: 0;
+  padding: 50px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-weight: 300;
+}
+
+.slider-info h2,
+.slider-info p,
+.slider-info a {
+  margin-top: 10px;
+}
+
+.slider-info h2 {
+  font-size: 32px;
+  font-weight: 300;
 }
