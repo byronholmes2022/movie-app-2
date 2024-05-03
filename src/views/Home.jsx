@@ -3,12 +3,16 @@ import Slider from "../components/Slider/Slider";
 import Popular from "../components/Popular/Popular";
 import Top from "../components/Top/Top";
 
+import "../css/movies.css";
+
 function Home() {
   return (
     <>
       <Slider />
-      <Popular />
-      <Top />
+      <div className="movies-container">
+        <Popular />
+        <Top />
+      </div>
     </>
   );
 }

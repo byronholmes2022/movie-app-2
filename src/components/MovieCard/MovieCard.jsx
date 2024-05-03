@@ -16,5 +16,9 @@ export default function MovieCard({
     width,
     borderRadius,
   };
-  return <div style={styles}></div>;
+  return (
+    <div className={cardStyle}>
+      <div style={styles}></div>
+    </div>
+  );
 }

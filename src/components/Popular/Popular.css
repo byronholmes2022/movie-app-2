@@ -1,4 +1,33 @@
+.popular-container {
+  padding: 0 20px;
+}
+
+.popular-container h3 {
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
 .popular-movies-wrapper {
   display: flex;
   flex-wrap: wrap;
+}
+
+.popular-card {
+  margin: 20px 20px 0 0;
+}
+
+.page-numbers {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.page-numbers p {
+  font-weight: 300;
+}
+
+.current-page {
+  border-bottom: 1px solid white;
 }
