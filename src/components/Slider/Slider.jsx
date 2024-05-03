@@ -9,7 +9,7 @@ function Slider() {
 
   const sliderStyles = {
     backgroundImage: `url(https://image.tmdb.org/t/p/original/${upcoming[slideIndex].backdrop_path})`,
-    backgroundPosition: "center center",
+    backgroundPosition: "center",
     backgroundSize: "cover",
     height: "60vh",
     width: "100%",

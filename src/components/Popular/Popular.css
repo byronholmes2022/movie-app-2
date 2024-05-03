@@ -1,0 +1,4 @@
+.popular-movies-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
