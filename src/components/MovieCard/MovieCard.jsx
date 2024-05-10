@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function MovieCard({
   height,
@@ -16,9 +17,11 @@ export default function MovieCard({
     width,
     borderRadius,
   };
+
+  console.log(movie);
   return (
-    <div className={cardStyle}>
+    <Link to={`/movie/details/${movie?.id}`} className={cardStyle}>
       <div style={styles}></div>
-    </div>
+    </Link>
   );
 }
