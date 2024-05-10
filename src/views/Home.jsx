@@ -13,6 +13,7 @@ function Home() {
         <Popular />
         <Top />
       </div>
+      <img src="" alt="" />
     </>
   );
 }

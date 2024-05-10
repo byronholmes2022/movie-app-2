@@ -1,9 +1,23 @@
-import React from "react";
-import { topData } from "../../temp/top";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+// import { topData } from "../../temp/top";
 import MovieCard from "../MovieCard/MovieCard";
 import "./Top.css";
 
 export default function Top() {
+  const [topData, setTopData] = useState([]);
+  useEffect(() => {
+    axios(
+      `${import.meta.env.VITE_APP_BASE_URL}/top_rated?api_key=${
+        import.meta.env.VITE_API_KEY
+      }&page=1`
+    )
+      .then((response) => {
+        console.log(response.data.results);
+        setTopData(response.data.results);
+      })
+      .catch((err) => console.log(err));
+  }, []);
   return (
     <div className="top-rated-container">
       <h3>Top Rated</h3>
