@@ -15,6 +15,7 @@
   --transparent-bg: rgba(20, 20, 20, 0.7);
   --header-height: 70px;
   --footer-bg: #373232;
+  --gray-text: lightgray;
 }
 
 a {
