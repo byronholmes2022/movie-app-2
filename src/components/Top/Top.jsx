@@ -30,6 +30,7 @@ export default function Top() {
               borderRadius={"8px"}
               imgSrc={movie.backdrop_path}
               cardStyle={"top-rated-card"}
+              movie={movie}
             />
             <p>{movie.title}</p>
           </>

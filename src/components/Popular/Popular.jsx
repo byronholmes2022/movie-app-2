@@ -29,8 +29,9 @@ function Popular() {
             height={"300px"}
             width={"200px"}
             borderRadius={"16px"}
-            imgSrc={movie.poster_path}
+            imgSrc={movie?.poster_path}
             cardStyle={"popular-card"}
+            movie={movie}
           />
         ))}
       </div>
