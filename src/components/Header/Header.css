@@ -27,7 +27,24 @@
   padding: 8px;
   width: 100%;
 }
+.search-input:focus {
+  outline: none;
+  border-radius: 0;
+}
 
+.search-results-container {
+  background-color: gray;
+  position: absolute;
+  top: 30px;
+  left: 0;
+  height: 300px;
+  width: 100%;
+  animation: input 0.5s ease 0s 1 normal forwards;
+  overflow: scroll;
+}
+.input-active {
+  border-radius: 0;
+}
 .header-buttons-container {
   display: flex;
   align-items: center;

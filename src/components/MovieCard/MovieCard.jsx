@@ -18,7 +18,6 @@ export default function MovieCard({
     borderRadius,
   };
 
-  console.log(movie);
   return (
     <Link to={`/movie/details/${movie?.id}`} className={cardStyle}>
       <div style={styles}></div>

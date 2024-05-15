@@ -8,6 +8,23 @@
   margin-top: var(--header-height);
   min-height: 100vh;
 }
+.reviews-container {
+  margin-top: 20px;
+  padding: 20px 0;
+}
+
+.reviews-title {
+  border-bottom: solid 2px gray;
+  padding-bottom: 10px;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.review-number {
+  margin-top: 10px;
+  cursor: pointer;
+  color: gray;
+}
 
 .trailer-container {
   padding-top: 57%;

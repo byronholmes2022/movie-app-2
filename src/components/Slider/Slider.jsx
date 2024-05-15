@@ -3,6 +3,7 @@ import axios from "axios";
 // import { upcoming } from "../../temp/upcoming";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import Ratings from "../Ratings/Ratings";
+import Genres from "../Genres/Genres";
 import "./Slider.css";
 
 function Slider() {
@@ -59,6 +60,7 @@ function Slider() {
           {upcoming[slideIndex]?.overview?.slice(0, 130)}
           {upcoming[slideIndex]?.overview?.length > 130 ? "..." : null}
         </p>
+        <Genres genreIds={upcoming[slideIndex]?.genre_ids} />
         <p>Release Date: {upcoming[slideIndex]?.release_date}</p>
         {/* <Ratings numberRating={upcoming[slideIndex]?.vote_average} /> */}
       </div>

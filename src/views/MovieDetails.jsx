@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import ReactPlayer from "react-player/youtube";
 import Ratings from "../components/Ratings/Ratings";
+import Genres from "../components/Genres/Genres";
+import Review from "../components/Review/Review";
 
 import "../css/movies.css";
 
@@ -10,6 +12,9 @@ function MovieDetails() {
   const { id } = useParams();
   const [movieDetail, setMovieDetail] = useState(null);
   const [trailerKey, setTrailerKey] = useState("");
+  const [reviews, setReviews] = useState([]);
+  const [numReviewsToSee, setNumReviewToSee] = useState(3);
+
   useEffect(() => {
     // call to get basic movie data
     axios(
@@ -36,6 +41,18 @@ function MovieDetails() {
           (video) => video.site === "YouTube" && video.type === "Trailer"
         );
         setTrailerKey(filteredTrailers[0].key);
+      })
+      .catch((err) => console.log(err));
+
+    //https://api.themoviedb.org/3/movie/{movie_id}/reviews
+    axios(
+      `${import.meta.env.VITE_APP_BASE_URL}/${id}/reviews?api_key=${
+        import.meta.env.VITE_API_KEY
+      }`
+    )
+      .then((response) => {
+        console.log(response.data);
+        setReviews(response.data.results);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -71,15 +88,27 @@ function MovieDetails() {
             <h4>Runtime: {movieDetail?.runtime} min</h4>
             <h4>Budget: {movieDetail?.budget}</h4>
             <h4>
-              Genres:{" "}
-              {movieDetail?.genres.map((genre, index) => (
-                <span>
-                  {genre.name}
-                  {index === movieDetail?.genres.length - 1 ? "" : ", "}
-                </span>
-              ))}
+              Genres: <Genres genreNames={movieDetail?.genres} />
             </h4>
           </div>
+        </div>
+        <div className="reviews-container">
+          <p className="reviews-title">Reviews</p>
+          {reviews.slice(0, numReviewsToSee).map((review) => (
+            <Review key={review?.id} reviewData={review} />
+          ))}
+          {numReviewsToSee < reviews.length ? (
+            <p
+              className="review-number"
+              onClick={() => setNumReviewToSee(numReviewsToSee + 3)}
+            >
+              <em>Read more reviews</em>
+            </p>
+          ) : (
+            <p className="review-number" onClick={() => setNumReviewToSee(3)}>
+              <em>End of Reviews. Collapse</em>
+            </p>
+          )}
         </div>
       </div>
     </div>
