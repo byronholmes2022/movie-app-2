@@ -1,9 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 import "./Header.css";
 
 function Header() {
+  const navigate = useNavigate();
+
   return (
     <div className="header-container">
       <Link to="/" className="logo">
@@ -21,8 +23,14 @@ function Header() {
           <MdOutlineLightMode className="theme-icon" />
           <MdOutlineDarkMode className="theme-icon theme-icon-active" />
         </div>
+
         <div>
-          <button className="create-account">Create an Account</button>
+          <button
+            className="create-account"
+            onClick={() => navigate("/signup")}
+          >
+            Create an Account
+          </button>
         </div>
       </div>
     </div>
